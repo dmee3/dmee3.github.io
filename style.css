@@ -9,6 +9,13 @@ h1 {
   font-size:48px;
 }
 
+h2 {
+  color: #fff;
+  font-weight: 500;
+  font-size:36px;
+}
+
+
 .circ {
   position: absolute;
   border-radius: 50%;
@@ -71,7 +78,6 @@ h1 {
   left:950px;
   width:180px;
   height:180px;
-  -webkit-animation: ghMove 20s linear infinite;
   z-index:200;
 }
 
@@ -80,6 +86,22 @@ h1 {
   top:5px;
   width:170px;
   height:170px;
+  z-index:201;
+}
+
+#res_circ_bg {
+  top:400px;
+  left:160px;
+  width:160px;
+  height:160px;
+  z-index:200;
+}
+
+#res_circ {
+  left:5px;
+  top:5px;
+  width:150px;
+  height:150px;
   z-index:201;
 }
 
@@ -158,6 +180,12 @@ h1 {
   position: relative;
   top:8px;
   left:48px;
+}
+
+#resume {
+  position: relative;
+  top:20px;
+  left:8px;
 }
 
 @-webkit-keyframes circ1Move {
