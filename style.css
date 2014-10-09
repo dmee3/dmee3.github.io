@@ -6,7 +6,7 @@ body {
 h1 {
 	color: #fff;
 	font-weight: 500;
-  font-size:36px;
+  font-size:48px;
 }
 
 .circ {
@@ -18,29 +18,32 @@ h1 {
   position: absolute;
 }
 
-.bg {
+.border {
 	background: #ade6bf;
+}
+
+.bg {
+  background: #5bba62;
 }
 
 .fg {
 	background: #19b94c;
-  z-index:2;
 }
 
 #name_circ_bg {
-	top: 147px;
-	left: 112px;
-	width: 210px;
-	height: 210px;
-  animation: nameMove 20s linear infinite;
-  -webkit-animation: nameMove 20s linear infinite;
+  top: 20px;
+  left: 20px;
+  width: 260px;
+  height: 260px;
+  z-index:200;
 }
 
 #name_circ {
-	left: 5px;
-	top: 5px;
-	width: 200px;
-	height: 200px;
+  left: 5px;
+  top: 5px;
+  width: 250px;
+  height: 250px;
+  z-index: 201;
 }
 
 #main_circ_bg {
@@ -48,7 +51,7 @@ h1 {
   left:440px;
   width:400px;
   height:400px;
-  -webkit-animation: mainBgPulse 20s linear infinite;
+  -webkit-animation: mainBgPulse 15s linear infinite;
 }
 
 #main_circ {
@@ -56,19 +59,20 @@ h1 {
   top:5px;
   width:390px;
   height:390px;
-  -webkit-animation: mainPulse 20s linear infinite;
+  -webkit-animation: mainPulse 15s linear infinite;
 }
 
 #pic {
-  -webkit-animation: mainPulse 20s linear infinite;
+  -webkit-animation: mainPulse 15s linear infinite;
 }
 
 #gh_circ_bg {
-  top:148px;
-  left:888px;
+  top:48px;
+  left:950px;
   width:180px;
   height:180px;
   -webkit-animation: ghMove 20s linear infinite;
+  z-index:200;
 }
 
 #gh_circ {
@@ -76,6 +80,42 @@ h1 {
   top:5px;
   width:170px;
   height:170px;
+  z-index:201;
+}
+
+#circ1_bg {
+  top: 147px;
+  left: 112px;
+  width: 210px;
+  height: 210px;
+  animation: circ1Move 20s linear infinite;
+  -webkit-animation: circ1Move 20s linear infinite;
+  z-index:100;
+}
+
+#circ1 {
+  left: 5px;
+  top: 5px;
+  width: 200px;
+  height: 200px;
+  z-index: 101;
+}
+
+#circ2_bg {
+  top:148px;
+  left:888px;
+  width:180px;
+  height:180px;
+  -webkit-animation: circ2Move 20s linear infinite;
+  z-index:100;
+}
+
+#circ2 {
+  left:5px;
+  top:5px;
+  width:170px;
+  height:170px;
+  z-index:101;
 }
 
 #line1_bg {
@@ -120,7 +160,7 @@ h1 {
   left:48px;
 }
 
-@-webkit-keyframes nameMove {
+@-webkit-keyframes circ1Move {
   0% {top:147px; left:112px;}
   2% {top:110px; left:155px;}
   4% {top:79px; left:202px;}
@@ -174,7 +214,7 @@ h1 {
   100% {top:147px; left:112px;}
 }
 
-@-webkit-keyframes ghMove {
+@-webkit-keyframes circ2Move {
   0% {top:148px; left:888px;}
   2% {top:190px; left:926px;}
   4% {top:238px; left:957px;}
