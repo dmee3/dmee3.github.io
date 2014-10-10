@@ -15,8 +15,8 @@ h2 {
   font-size:36px;
 }
 
-img {
-  border-style: none;
+a {
+  text-decoration: none;
 }
 
 
@@ -28,6 +28,10 @@ img {
 
 .line {
   position: absolute;
+}
+
+.border {
+  background-color: #ade6bf;
 }
 
 .bg {
@@ -51,6 +55,7 @@ img {
   left:440px;
   width:390px;
   height:390px;
+  z-index:200;
 }
 
 #gh_circ {
@@ -90,34 +95,58 @@ img {
   z-index:100;
 }
 
-#line1_bg {
-  top: 252px;
-  left: 217px;
-  width: 20px;
-  height:250px;
-  transform: rotate(-57deg);
-}
-
 #line1 {
-  top: -5px;
-  left: 5px;
+  top: 170px;
+  left: 370px;
   width: 10px;
-  height:260px;
+  height:300px;
+  transform: rotate(-51deg);
+  z-index:250;
 }
 
-#line2_bg {
-  top: 170px;
-  left: 782px;
+#line1_bg {
+  top: 172px;
+  left: 367px;
   width: 20px;
-  height:100px;
-  transform: rotate(37deg);
+  height:300px;
+  transform: rotate(-51deg);
+  z-index:150;
 }
 
 #line2 {
-  top: -5px;
-  left: 5px;
+  top: 270px;
+  left: 200px;
   width: 10px;
-  height:110px;
+  height:150px;
+  transform: rotate(-17deg);
+  z-index: 250;
+}
+
+#line2_bg {
+  top: 272px;
+  left: 196px;
+  width: 20px;
+  height:150px;
+  transform: rotate(-17deg);
+  z-index: 150;
+}
+
+#line3 {
+  top: 146px;
+  left: 852px;
+  width: 10px;
+  height:350px;
+  transform: rotate(45deg);
+  z-index: 250;
+}
+
+#line3_bg {
+  top: 141px;
+  left: 852px;
+  width: 20px;
+  height:350px;
+  transform: rotate(45deg);
+  z-index: 150;
 }
 
 #dan {
@@ -130,6 +159,25 @@ img {
   position: relative;
   top:13px;
   left:53px;
+}
+
+#pic {
+  position:absolute;
+  top:321px;
+  left:445px;
+  z-index:300;
+}
+
+#gh_img {
+  display: block;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background-image: url('images/github_white.png');
+}
+
+#gh_img:hover {
+  background-image: url('images/github_black.png');
 }
 
 #resume {
@@ -248,113 +296,6 @@ img {
   100% {top:148px; left:888px;}
 }
 
-@-webkit-keyframes mainBgPulse {
-0% {top:316px; left:440px; width:400px; height:400px;}
-2% {top:320px; left:444px; width:393px; height:393px;}
-4% {top:323px; left:447px; width:387px; height:387px;}
-6% {top:326px; left:450px; width:381px; height:381px;}
-8% {top:329px; left:453px; width:375px; height:375px;}
-10% {top:332px; left:456px; width:369px; height:369px;}
-12% {top:335px; left:459px; width:363px; height:363px;}
-14% {top:338px; left:462px; width:357px; height:357px;}
-16% {top:341px; left:465px; width:351px; height:351px;}
-18% {top:343px; left:467px; width:346px; height:346px;}
-20% {top:346px; left:470px; width:341px; height:341px;}
-22% {top:348px; left:472px; width:336px; height:336px;}
-24% {top:351px; left:475px; width:331px; height:331px;}
-26% {top:353px; left:477px; width:327px; height:327px;}
-28% {top:355px; left:479px; width:322px; height:322px;}
-30% {top:357px; left:481px; width:319px; height:319px;}
-32% {top:359px; left:483px; width:315px; height:315px;}
-34% {top:360px; left:484px; width:312px; height:312px;}
-36% {top:362px; left:486px; width:309px; height:309px;}
-38% {top:363px; left:487px; width:307px; height:307px;}
-40% {top:364px; left:488px; width:304px; height:304px;}
-42% {top:365px; left:489px; width:303px; height:303px;}
-44% {top:366px; left:490px; width:301px; height:301px;}
-46% {top:366px; left:490px; width:300px; height:300px;}
-48% {top:366px; left:490px; width:300px; height:300px;}
-50% {top:366px; left:490px; width:300px; height:300px;}
-52% {top:366px; left:490px; width:300px; height:300px;}
-54% {top:366px; left:490px; width:300px; height:300px;}
-56% {top:366px; left:490px; width:301px; height:301px;}
-58% {top:365px; left:489px; width:303px; height:303px;}
-60% {top:364px; left:488px; width:304px; height:304px;}
-62% {top:363px; left:487px; width:307px; height:307px;}
-64% {top:362px; left:486px; width:309px; height:309px;}
-66% {top:360px; left:484px; width:312px; height:312px;}
-68% {top:359px; left:483px; width:315px; height:315px;}
-70% {top:357px; left:481px; width:319px; height:319px;}
-72% {top:355px; left:479px; width:322px; height:322px;}
-74% {top:353px; left:477px; width:327px; height:327px;}
-76% {top:351px; left:475px; width:331px; height:331px;}
-78% {top:348px; left:472px; width:336px; height:336px;}
-80% {top:346px; left:470px; width:341px; height:341px;}
-82% {top:343px; left:467px; width:346px; height:346px;}
-84% {top:341px; left:465px; width:351px; height:351px;}
-86% {top:338px; left:462px; width:357px; height:357px;}
-88% {top:335px; left:459px; width:363px; height:363px;}
-90% {top:332px; left:456px; width:369px; height:369px;}
-92% {top:329px; left:453px; width:375px; height:375px;}
-94% {top:326px; left:450px; width:381px; height:381px;}
-96% {top:323px; left:447px; width:387px; height:387px;}
-98% {top:320px; left:444px; width:393px; height:393px;}
-}
-
-@-webkit-keyframes mainPulse {
-0% {width:390px; height:390px;}
-2% {width:383px; height:383px;}
-4% {width:377px; height:377px;}
-6% {width:371px; height:371px;}
-8% {width:365px; height:365px;}
-10% {width:359px; height:359px;}
-12% {width:353px; height:353px;}
-14% {width:347px; height:347px;}
-16% {width:341px; height:341px;}
-18% {width:336px; height:336px;}
-20% {width:331px; height:331px;}
-22% {width:326px; height:326px;}
-24% {width:321px; height:321px;}
-26% {width:317px; height:317px;}
-28% {width:312px; height:312px;}
-30% {width:309px; height:309px;}
-32% {width:305px; height:305px;}
-34% {width:302px; height:302px;}
-36% {width:299px; height:299px;}
-38% {width:297px; height:297px;}
-40% {width:294px; height:294px;}
-42% {width:293px; height:293px;}
-44% {width:291px; height:291px;}
-46% {width:290px; height:290px;}
-48% {width:290px; height:290px;}
-50% {width:290px; height:290px;}
-52% {width:290px; height:290px;}
-54% {width:290px; height:290px;}
-56% {width:291px; height:291px;}
-58% {width:293px; height:293px;}
-60% {width:294px; height:294px;}
-62% {width:297px; height:297px;}
-64% {width:299px; height:299px;}
-66% {width:302px; height:302px;}
-68% {width:305px; height:305px;}
-70% {width:309px; height:309px;}
-72% {width:312px; height:312px;}
-74% {width:317px; height:317px;}
-76% {width:321px; height:321px;}
-78% {width:326px; height:326px;}
-80% {width:331px; height:331px;}
-82% {width:336px; height:336px;}
-84% {width:341px; height:341px;}
-86% {width:347px; height:347px;}
-88% {width:353px; height:353px;}
-90% {width:359px; height:359px;}
-92% {width:365px; height:365px;}
-94% {width:371px; height:371px;}
-96% {width:377px; height:377px;}
-98% {width:383px; height:383px;}
-100% {width:390px; height:390px;}
-}
-
 /* Non-webkit */
 
 @keyframes circ1Move {
@@ -463,111 +404,4 @@ img {
   96% {top:79px; left:798px;}
   98% {top:111px; left:845px;}
   100% {top:148px; left:888px;}
-}
-
-@keyframes mainBgPulse {
-0% {top:316px; left:440px; width:400px; height:400px;}
-2% {top:320px; left:444px; width:393px; height:393px;}
-4% {top:323px; left:447px; width:387px; height:387px;}
-6% {top:326px; left:450px; width:381px; height:381px;}
-8% {top:329px; left:453px; width:375px; height:375px;}
-10% {top:332px; left:456px; width:369px; height:369px;}
-12% {top:335px; left:459px; width:363px; height:363px;}
-14% {top:338px; left:462px; width:357px; height:357px;}
-16% {top:341px; left:465px; width:351px; height:351px;}
-18% {top:343px; left:467px; width:346px; height:346px;}
-20% {top:346px; left:470px; width:341px; height:341px;}
-22% {top:348px; left:472px; width:336px; height:336px;}
-24% {top:351px; left:475px; width:331px; height:331px;}
-26% {top:353px; left:477px; width:327px; height:327px;}
-28% {top:355px; left:479px; width:322px; height:322px;}
-30% {top:357px; left:481px; width:319px; height:319px;}
-32% {top:359px; left:483px; width:315px; height:315px;}
-34% {top:360px; left:484px; width:312px; height:312px;}
-36% {top:362px; left:486px; width:309px; height:309px;}
-38% {top:363px; left:487px; width:307px; height:307px;}
-40% {top:364px; left:488px; width:304px; height:304px;}
-42% {top:365px; left:489px; width:303px; height:303px;}
-44% {top:366px; left:490px; width:301px; height:301px;}
-46% {top:366px; left:490px; width:300px; height:300px;}
-48% {top:366px; left:490px; width:300px; height:300px;}
-50% {top:366px; left:490px; width:300px; height:300px;}
-52% {top:366px; left:490px; width:300px; height:300px;}
-54% {top:366px; left:490px; width:300px; height:300px;}
-56% {top:366px; left:490px; width:301px; height:301px;}
-58% {top:365px; left:489px; width:303px; height:303px;}
-60% {top:364px; left:488px; width:304px; height:304px;}
-62% {top:363px; left:487px; width:307px; height:307px;}
-64% {top:362px; left:486px; width:309px; height:309px;}
-66% {top:360px; left:484px; width:312px; height:312px;}
-68% {top:359px; left:483px; width:315px; height:315px;}
-70% {top:357px; left:481px; width:319px; height:319px;}
-72% {top:355px; left:479px; width:322px; height:322px;}
-74% {top:353px; left:477px; width:327px; height:327px;}
-76% {top:351px; left:475px; width:331px; height:331px;}
-78% {top:348px; left:472px; width:336px; height:336px;}
-80% {top:346px; left:470px; width:341px; height:341px;}
-82% {top:343px; left:467px; width:346px; height:346px;}
-84% {top:341px; left:465px; width:351px; height:351px;}
-86% {top:338px; left:462px; width:357px; height:357px;}
-88% {top:335px; left:459px; width:363px; height:363px;}
-90% {top:332px; left:456px; width:369px; height:369px;}
-92% {top:329px; left:453px; width:375px; height:375px;}
-94% {top:326px; left:450px; width:381px; height:381px;}
-96% {top:323px; left:447px; width:387px; height:387px;}
-98% {top:320px; left:444px; width:393px; height:393px;}
-}
-
-@keyframes mainPulse {
-0% {width:390px; height:390px;}
-2% {width:383px; height:383px;}
-4% {width:377px; height:377px;}
-6% {width:371px; height:371px;}
-8% {width:365px; height:365px;}
-10% {width:359px; height:359px;}
-12% {width:353px; height:353px;}
-14% {width:347px; height:347px;}
-16% {width:341px; height:341px;}
-18% {width:336px; height:336px;}
-20% {width:331px; height:331px;}
-22% {width:326px; height:326px;}
-24% {width:321px; height:321px;}
-26% {width:317px; height:317px;}
-28% {width:312px; height:312px;}
-30% {width:309px; height:309px;}
-32% {width:305px; height:305px;}
-34% {width:302px; height:302px;}
-36% {width:299px; height:299px;}
-38% {width:297px; height:297px;}
-40% {width:294px; height:294px;}
-42% {width:293px; height:293px;}
-44% {width:291px; height:291px;}
-46% {width:290px; height:290px;}
-48% {width:290px; height:290px;}
-50% {width:290px; height:290px;}
-52% {width:290px; height:290px;}
-54% {width:290px; height:290px;}
-56% {width:291px; height:291px;}
-58% {width:293px; height:293px;}
-60% {width:294px; height:294px;}
-62% {width:297px; height:297px;}
-64% {width:299px; height:299px;}
-66% {width:302px; height:302px;}
-68% {width:305px; height:305px;}
-70% {width:309px; height:309px;}
-72% {width:312px; height:312px;}
-74% {width:317px; height:317px;}
-76% {width:321px; height:321px;}
-78% {width:326px; height:326px;}
-80% {width:331px; height:331px;}
-82% {width:336px; height:336px;}
-84% {width:341px; height:341px;}
-86% {width:347px; height:347px;}
-88% {width:353px; height:353px;}
-90% {width:359px; height:359px;}
-92% {width:365px; height:365px;}
-94% {width:371px; height:371px;}
-96% {width:377px; height:377px;}
-98% {width:383px; height:383px;}
-100% {width:390px; height:390px;}
 }
