@@ -180,12 +180,6 @@ a {
   background-image: url('images/github_black.png');
 }
 
-#resume {
-  position: relative;
-  top:25px;
-  left:13px;
-}
-
 /* Webkit */
 
 @-webkit-keyframes circ1Move {
