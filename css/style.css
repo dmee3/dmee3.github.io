@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 @font-face {
   font-family: libSans;
   src: url(../fonts/liberation-sans-regular.ttf);
@@ -8,60 +13,54 @@ html {
 }
 
 body {
-  background: #333;
+  background: #fff;
   margin: 0;
   padding: 0;
 }
 
-#header {
-  background: #fff;
-  position: fixed;
-  top: 0;
-  height: 80px;
-  left: 0;
-  right: 0;
-  border-radius:0 0 10px 10px;
-  padding: 0 4px;
-}
-
-#header h1 {
-  font-size: 72px;
-  color: #0C0;
-  margin: 0;
-}
-
-#nav {
-  position: fixed;
-  top: 34px;
-  right:14px;
-  text-align: right;
-  list-style-type: none;
-}
-
-#nav li {
-  display: inline;
-}
-
-#nav li h3 {
-  display: inline;
-}
-
-#nav .link :hover {
-  color: #0C0;
-}
-
-#nav .sep :hover {
-  cursor: default;
+h1 {
+  font-size: 2.5em;
+  color: #fff;
 }
 
 #content {
-  background: #eee;
+  background: #333;
   border-radius: 10px;
-  min-height: 100px;
-  width:90%;
-  margin: 90px auto;
+  height: 600px;
+  width:45%;
+  position: fixed;
+  left: 50%;
+  top: 100px;
+  padding: 20px;
+}
 
+#bubble-container {
+  height: 600px;
+  width:40%;
+  position: fixed;
+  left: 5%;
+  top: 100px;
+}
 
-  text-align: center;
-  padding: 40px;
+.bubble {
+  float: left;
+  margin: 20px;
+  width:150px;
+  height: 150px;
+  background: #007700;
+  background-size: 100% 100%;
+  border-radius: 75px;
+}
+
+.bubble-text {
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 75px;
+  color:#fff;
+  background: rgba(0,0,0,.5);
+}
+
+#bubble-me {
+  background-image: url('../images/face_bw.jpg');
 }
