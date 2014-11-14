@@ -55,6 +55,10 @@ h1 {
   top: 100px;
 }
 
+#bubble-container h2 {
+  clear: both;
+}
+
 .bubble {
   float: left;
   margin: 0 0 20px 20px;
