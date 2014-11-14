@@ -40,6 +40,11 @@ h1 {
 .content-text {
   height: 620px;
   width: 100%;
+  display: none;
+}
+
+#me {
+  display: block;
 }
 
 .indent {
@@ -83,4 +88,8 @@ h1 {
 
 #bubble-stacker {
   background-image: url('../images/stacker.jpg');
+}
+
+#bubble-iMusic {
+  background-image: url('../images/iMusic.jpg');
 }

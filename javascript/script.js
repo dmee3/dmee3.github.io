@@ -23,3 +23,8 @@ $('#bubble-stacker').click(function () {
   $('#stacker').slideDown(500);
   $('.content-text').not('#stacker').slideUp(500);
 });
+
+$('#bubble-iMusic').click(function () {
+  $('#iMusic').slideDown(500);
+  $('.content-text').not('#iMusic').slideUp(500);
+});
