@@ -19,7 +19,10 @@ body {
 }
 
 h1 {
-  font-size: 2.5em;
+  padding: 5px;
+  border-radius: 4px;
+  background: #070;
+  color: #fff;
 }
 
 #content {
@@ -35,8 +38,12 @@ h1 {
 }
 
 .content-text {
-  height: 600px;
+  height: 620px;
   width: 100%;
+}
+
+.indent {
+  margin-left: 10px;
 }
 
 #bubble-container {
@@ -53,7 +60,7 @@ h1 {
   margin: 0 0 20px 20px;
   width:150px;
   height: 150px;
-  background: #007700;
+  background: #070;
   background-size: 100% 100%;
   border-radius: 75px;
 }
@@ -68,4 +75,8 @@ h1 {
 
 #bubble-work {
   background-image: url('../images/work.jpg');
+}
+
+#bubble-stacker {
+  background-image: url('../images/stacker.jpg');
 }

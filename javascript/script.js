@@ -18,3 +18,8 @@ $('#bubble-work').click(function () {
   $('#work').slideDown(500);
   $('.content-text').not('#work').slideUp(500);
 });
+
+$('#bubble-stacker').click(function () {
+  $('#stacker').slideDown(500);
+  $('.content-text').not('#stacker').slideUp(500);
+});
