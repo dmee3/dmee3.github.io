@@ -22,11 +22,21 @@ h1 {
   padding: 5px;
 }
 
+#wrapper {
+  position: fixed;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  height: 100%;
+  background-color: #333;
+}
+
 #big-name {
   height: 100px;
   position: fixed;
-  left: 5%;
+  left: 7%;
   top: 0;
+  color: #fff;
 }
 
 #big-name h1 {
@@ -38,49 +48,18 @@ h1 {
   color: #777;
 }
 
-#content {
-  background: #fff;
-  border-radius: 10px;
-  height: 600px;
-  width:45%;
-  position: fixed;
-  left: 50%;
-  top: 100px;
-  padding: 20px;
-  overflow: hidden;
-}
-
-#content h1 {
-  border-radius: 4px;
-  background: #070;
-  color: #fff;
-}
-
-.content-text {
-  height: 620px;
-  width: 100%;
-  display: none;
-}
-
-#me {
-  display: block;
-}
-
-.indent {
-  margin-left: 10px;
-}
-
 #bubble-container {
   min-height: 600px;
   width:40%;
   overflow: auto;
   position: fixed;
-  left: 5%;
+  left: 10%;
   top: 100px;
 }
 
 #bubble-container h2 {
   clear: both;
+  color: #fff;
 }
 
 .bubble {
@@ -111,4 +90,36 @@ h1 {
 
 #bubble-iMusic {
   background-image: url('../images/iMusic.jpg');
+}
+
+#content {
+  background: #fff;
+  border-radius: 10px;
+  height: 600px;
+  width:40%;
+  position: fixed;
+  left: 50%;
+  top: 100px;
+  padding: 20px;
+  overflow: hidden;
+}
+
+#content h1 {
+  border-radius: 4px;
+  background: #070;
+  color: #fff;
+}
+
+.content-text {
+  height: 620px;
+  width: 100%;
+  display: none;
+}
+
+#me {
+  display: block;
+}
+
+.indent {
+  margin-left: 10px;
 }
