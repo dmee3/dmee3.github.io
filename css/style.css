@@ -20,9 +20,13 @@ body {
 
 h1 {
   padding: 5px;
-  border-radius: 4px;
-  background: #070;
-  color: #fff;
+}
+
+#big-name {
+  height: 100px;
+  position: fixed;
+  left: 5%;
+  top: 0;
 }
 
 #content {
@@ -35,6 +39,12 @@ h1 {
   top: 100px;
   padding: 20px;
   overflow: hidden;
+}
+
+#content h1 {
+  border-radius: 4px;
+  background: #070;
+  color: #fff;
 }
 
 .content-text {
