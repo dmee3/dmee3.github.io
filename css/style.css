@@ -29,6 +29,15 @@ h1 {
   top: 0;
 }
 
+#big-name h1 {
+  font-size: 48px;
+}
+
+#big-name #student {
+  font-size: 36px;
+  color: #777;
+}
+
 #content {
   background: #fff;
   border-radius: 10px;
