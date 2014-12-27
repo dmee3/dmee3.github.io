@@ -125,16 +125,6 @@ h1 {
   margin-left: 10px;
 }
 
-.album-art {
-	margin-right: 10px;
-}
-
-.no-album-art {
-	width: 80px;
-	height: 80px;
-	background-color: #777;
-}
-
 #SpotAPI-search {
 	padding: 10px;
 	background-color: #333;
@@ -143,12 +133,30 @@ h1 {
 #search-text {
 	margin-right: 10px;
 	padding: 4px;
-	width: 70%;
+	width: 50%;
+}
+
+#SpotAPI-form p {
+	display: inline;
+	font-size: 11px;
+	margin: 0 6px;
+	color: #fff;
 }
 
 #search-btn {
 	padding: 4px;
 	width: 60px;
+	margin-left: 10px;
+}
+
+.album-art {
+	margin-right: 10px;
+}
+
+.no-album-art {
+	width: 80px;
+	height: 80px;
+	background-color: #777;
 }
 
 .spot-search-result {

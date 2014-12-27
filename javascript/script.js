@@ -1,26 +1,44 @@
 var spot = new Spotify();
 
-var setArtistSearch = function(res) {
-	var artists = res['artists']['items'];
+var searchArtist = function(res) {
+	var result = res['artists']['items'];
 	document.getElementById('SpotAPI').innerHTML = '';
-	console.log(artists);
+	console.log(result);
 
-	for (var i = 0; i < artists.length; i++) {
+	for (var i = 0; i < result.length; i++) {
 		var entry = "";
-		if (artists[i]['images'].length > 0) {
-			entry = '<div class="spot-search-result"><img class="album-art" src="' + artists[i]['images'][0]['url'] + '" height="80px" width="80px" /><div class="spot-search-result-title"><p>' + artists[i]['name'];
+		if (result[i]['images'].length > 0) {
+			entry = '<div class="spot-search-result"><img class="album-art" src="' + result[i]['images'][0]['url'] + '" height="80px" width="80px" /><div class="spot-search-result-title"><p>' + result[i]['name'];
 		} else {
-			entry = '<div class="spot-search-result"><div class="no-album-art"></div><div class="spot-search-result-title"><p>' + artists[i]['name'];
+			entry = '<div class="spot-search-result"><div class="no-album-art"></div><div class="spot-search-result-title"><p>' + result[i]['name'];
 		}
 
-		if (artists[i]['genres'].length > 0) {
-			entry += '<span style="color: #777; font-weight:400;"> | ' + artists[i]['genres'][0] + '</span>';
+		if (result[i]['genres'].length > 0) {
+			entry += '<span style="color: #777; font-weight:400;"> | ' + result[i]['genres'][0] + '</span>';
 		}
 
 		entry += '</p></div></div><div class="spot-search-result-border"></div>';
 		document.getElementById('SpotAPI').innerHTML += entry;
 	}
-}
+};
+
+var searchAlbum = function(res) {
+	var result = res['albums']['items'];
+	document.getElementById('SpotAPI').innerHTML = '';
+	console.log(result);
+
+	for (var i = 0; i < result.length; i++) {
+		var entry = "";
+		if (result[i]['images'].length > 0) {
+			entry = '<div class="spot-search-result"><img class="album-art" src="' + result[i]['images'][0]['url'] + '" height="80px" width="80px" /><div class="spot-search-result-title"><p>' + result[i]['name'];
+		} else {
+			entry = '<div class="spot-search-result"><div class="no-album-art"></div><div class="spot-search-result-title"><p>' + result[i]['name'];
+		}
+
+		entry += '</p></div></div><div class="spot-search-result-border"></div>';
+		document.getElementById('SpotAPI').innerHTML += entry;
+	}
+};
 
 $('.bubble').hover(function() {
   $(this).fadeTo(500, 0.5);
@@ -60,5 +78,9 @@ $('#bubble-SpotAPI').click(function() {
 
 $('#SpotAPI-form').on('submit', function(e) {
 	e.preventDefault();
-	spot.searchArtist($('#search-text').val(),setArtistSearch);
+	if ($('#radio-album').is(':checked')) {
+		spot.searchAlbum($('#search-text').val(),searchAlbum);
+	} else {
+		spot.searchArtist($('#search-text').val(),searchArtist);
+	}
 });

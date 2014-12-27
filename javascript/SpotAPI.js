@@ -36,4 +36,23 @@ var Spotify = function() {
 
 		return request('search', params, callback);
 	};
+	
+	this.searchAlbum = function(query, callback) {
+		var params = {
+			q:query,
+			type:'album',
+			market:'US'
+		}
+
+		return request('search', params, callback);
+	};
+	
+	this.searchFullAlbum = function(query, callback) {
+		var res = searchAlbum(query, callback);
+		var full_res = new Array();
+		
+		for (var a in res['albums']['items']) {
+			
+		}
+	}
 };
