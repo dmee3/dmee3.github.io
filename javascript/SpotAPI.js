@@ -3,9 +3,8 @@ var Spotify = function() {
 	'use strict';
 	var baseURI = 'https://api.spotify.com/v1/';
 
-	function request(query, params, callback) {
+	function asyncRequest(url, callback) {
 		var ajax = new XMLHttpRequest();
-		var url = buildURL(query, params);
 
 		ajax.onreadystatechange = function() {
 			if (ajax.readyState === 4 && ajax.status === 200) {
@@ -18,8 +17,8 @@ var Spotify = function() {
 		ajax.send();
 	}
 
-	function buildURL(query, params) {
-		var url = baseURI + query + '?';
+	function buildURL(queryType, params) {
+		var url = baseURI + queryType + '?';
 		for (var k in params) {
 			url += encodeURIComponent(k) + '=' + encodeURIComponent(params[k]) + '&';
 		}
@@ -27,32 +26,47 @@ var Spotify = function() {
 		return url.substring(0, url.length - 1);
 	}
 
+	/*
+	 * Searches for an artist.
+	 *
+	 * @param {String} query - the string to search for
+	 * @param {function} callback - function to manipulate returned data once
+	 *     async request has been completed.
+	 */
 	this.searchArtist = function(query, callback) {
 		var params = {
 			q:query,
 			type:'artist',
 			market:'US'
 		}
-
-		return request('search', params, callback);
+		asyncRequest(buildURL('search', params), callback);
 	};
 	
+	/*
+	 * Searches for an album.
+	 *
+	 * @param {String} query - the string to search for
+	 * @param {function} callback - function to manipulate returned data once
+	 *     async request has been completed.
+	 */
 	this.searchAlbum = function(query, callback) {
 		var params = {
 			q:query,
 			type:'album',
 			market:'US'
 		}
-
-		return request('search', params, callback);
+		asyncRequest(buildURL('search', params), callback);
 	};
 	
-	this.searchFullAlbum = function(query, callback) {
-		var res = searchAlbum(query, callback);
-		var full_res = new Array();
-		
-		for (var a in res['albums']['items']) {
-			
-		}
+	/*
+	 * Returns details on a given album.
+	 *
+	 * @param {String} id - the Spotify id of the album to be retrieved
+	 * @param {function} callback - function to manipulate returned data once
+	 *     async request has been completed.
+	 */
+	this.getAlbum = function(id, callback) {
+		var url = baseURI + 'albums/' + id;
+		asyncRequest(url, callback);
 	}
 };

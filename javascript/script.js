@@ -3,7 +3,6 @@ var spot = new Spotify();
 var searchArtist = function(res) {
 	var result = res['artists']['items'];
 	document.getElementById('SpotAPI').innerHTML = '';
-	console.log(result);
 
 	for (var i = 0; i < result.length; i++) {
 		var entry = "";
@@ -25,18 +24,24 @@ var searchArtist = function(res) {
 var searchAlbum = function(res) {
 	var result = res['albums']['items'];
 	document.getElementById('SpotAPI').innerHTML = '';
-	console.log(result);
 
 	for (var i = 0; i < result.length; i++) {
-		var entry = "";
-		if (result[i]['images'].length > 0) {
-			entry = '<div class="spot-search-result"><img class="album-art" src="' + result[i]['images'][0]['url'] + '" height="80px" width="80px" /><div class="spot-search-result-title"><p>' + result[i]['name'];
-		} else {
-			entry = '<div class="spot-search-result"><div class="no-album-art"></div><div class="spot-search-result-title"><p>' + result[i]['name'];
+		var id = result[i]['id'];
+		spot.getAlbum(id, function(res) {
+			var entry = "";
+			if (res['images'].length > 0) {
+				entry = '<div class="spot-search-result"><img class="album-art" src="' + res['images'][0]['url'] + '" height="80px" width="80px" /><div class="spot-search-result-title"><p>' + res['name'];
+			} else {
+				entry = '<div class="spot-search-result"><div class="no-album-art"></div><div class="spot-search-result-title"><p>' + res['name'];
+			}
+			
+			if (res['artists'].length > 0) {
+			entry += '<span style="color: #777; font-weight:400;"> | ' + res['artists'][0]['name'] + '</span>';
 		}
 
-		entry += '</p></div></div><div class="spot-search-result-border"></div>';
-		document.getElementById('SpotAPI').innerHTML += entry;
+			entry += '</p></div></div><div class="spot-search-result-border"></div>';
+			document.getElementById('SpotAPI').innerHTML += entry;
+		});
 	}
 };
 
@@ -80,6 +85,7 @@ $('#SpotAPI-form').on('submit', function(e) {
 	e.preventDefault();
 	if ($('#radio-album').is(':checked')) {
 		spot.searchAlbum($('#search-text').val(),searchAlbum);
+		
 	} else {
 		spot.searchArtist($('#search-text').val(),searchArtist);
 	}
