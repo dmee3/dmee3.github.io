@@ -30,8 +30,9 @@ var Spotify = function() {
 	 * Searches for an artist.
 	 *
 	 * @param {String} query - the string to search for
-	 * @param {function} callback - function to manipulate returned data once
-	 *     async request has been completed.
+	 * @param {function(Object)} callback - function to manipulate returned data once
+	 *     async request has been completed.  The passed in parameter stores the result
+	 *     of the query.
 	 */
 	this.searchArtist = function(query, callback) {
 		var params = {
@@ -46,8 +47,9 @@ var Spotify = function() {
 	 * Searches for an album.
 	 *
 	 * @param {String} query - the string to search for
-	 * @param {function} callback - function to manipulate returned data once
-	 *     async request has been completed.
+	 * @param {function(Object)} callback - function to manipulate returned data once
+	 *     async request has been completed.  The passed in parameter stores the result
+	 *     of the query.
 	 */
 	this.searchAlbum = function(query, callback) {
 		var params = {
@@ -62,8 +64,9 @@ var Spotify = function() {
 	 * Returns details on a given album.
 	 *
 	 * @param {String} id - the Spotify id of the album to be retrieved
-	 * @param {function} callback - function to manipulate returned data once
-	 *     async request has been completed.
+	 * @param {function(Object)} callback - function to manipulate returned data once
+	 *     async request has been completed.  The passed in parameter stores the result
+	 *     of the query.
 	 */
 	this.getAlbum = function(id, callback) {
 		var url = baseURI + 'albums/' + id;
