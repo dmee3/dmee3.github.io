@@ -73,12 +73,7 @@ $('#SpotAPI-form').on('submit', function(e) {
 
 //Display album contents
 $(document).on('click', '.album', function() {
-	if ($(this).children('.track-list').attr('display') === 'none') {
-		$('.track-list').slideUp(500);
-		$(this).children('.track-list').slideDown(500);
-	} else {
-		$('.track-list').slideUp(500);
-	}
+	$(this).children('.track-list').slideToggle(500);
 });
 
 
