@@ -1,131 +1,137 @@
 * {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 @font-face {
-  font-family: libSans;
-  src: url(../fonts/liberation-sans-regular.ttf);
+	font-family: libSans;
+	src: url(../fonts/liberation-sans-regular.ttf);
 }
 
 html {
-  font-family: libSans;
+	font-family: libSans;
 }
 
 body {
-  background: #ddc;
-  margin: 0;
-  padding: 0;
+	background: #ddc;
+	margin: 0;
+	padding: 0;
 }
 
 h1 {
-  padding: 5px;
+	padding: 5px;
+}
+
+ul, li {
+	list-style-type: none;
+	display: block;
 }
 
 #wrapper {
-  position: fixed;
-  top: 0;
-  left: 5%;
-  width: 90%;
-  height: 100%;
-  background-color: #333;
+	position: fixed;
+	top: 0;
+	left: 5%;
+	width: 90%;
+	height: 100%;
+	background-color: #333;
 }
 
 #big-name {
-  height: 100px;
-  position: fixed;
-  left: 7%;
-  top: 0;
-  color: #fff;
+	height: 100px;
+	position: fixed;
+	left: 7%;
+	top: 0;
+	color: #fff;
 }
 
 #big-name h1 {
-  font-size: 48px;
+	font-size: 48px;
 }
 
 #big-name #student {
-  font-size: 36px;
-  color: #777;
+	font-size: 36px;
+	color: #777;
 }
 
 #bubble-container {
-  min-height: 600px;
-  width:38%;
-  overflow: auto;
-  position: fixed;
-  left: 10%;
-  top: 100px;
+	min-height: 600px;
+	width:38%;
+	overflow: auto;
+	position: fixed;
+	left: 10%;
+	top: 100px;
 }
 
 #bubble-container h2 {
-  clear: both;
-  color: #fff;
+	clear: both;
+	color: #fff;
 }
 
 .bubble {
-  float: left;
-  margin: 0 0 20px 20px;
-  width:150px;
-  height: 150px;
-  background: #070;
-  background-size: 100% 100%;
-  border-radius: 75px;
+	float: left;
+	margin: 0 0 20px 20px;
+	width:150px;
+	height: 150px;
+	background: #070;
+	background-size: 100% 100%;
+	border-radius: 75px;
 }
 
 #bubble-me {
-  background-image: url('../images/face_bw.jpg');
+	background-image: url('../images/face_bw.jpg');
 }
 
 #bubble-school {
-  background-image: url('../images/school.jpg');
+	background-image: url('../images/school.jpg');
 }
 
 #bubble-work {
-  background-image: url('../images/work.jpg');
+	background-image: url('../images/work.jpg');
 }
 
 #bubble-stacker {
-  background-image: url('../images/stacker.jpg');
+	background-image: url('../images/stacker.jpg');
 }
 
 #bubble-iMusic {
-  background-image: url('../images/iMusic.jpg');
+	background-image: url('../images/iMusic.jpg');
 }
 
 #content {
-  background: #fff;
-  border-radius: 10px;
-  height: 600px;
-  width:40%;
-  position: fixed;
-  left: 50%;
-  top: 100px;
-  padding: 20px;
+	background: #fff;
+	border-radius: 10px;
+	border: 20px solid #fff;
+	/*padding: 20px; uncomment and delete border property for old style */
+	height: 600px;
+	width:40%;
+	position: fixed;
+	left: 50%;
+	top: 100px;
 	overflow-x: hidden;
-  overflow-y: scroll;
+	overflow-y: auto;
 }
 
 #content h1 {
-  border-radius: 4px;
-  background: #070;
-  color: #fff;
+	border-radius: 4px;
+	background: #070;
+	color: #fff;
 }
 
 .content-text {
-  height: 620px;
-  width: 100%;
-  display: none;
+	height: 600px;
+	width: 100%;
+	display: none;
 }
 
 #me {
-  display: block;
+	display: block;
 }
 
 .indent {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
-#SpotAPI-search {
+#SpotAPI-search-bar {
 	padding: 10px;
 	background-color: #333;
 }
@@ -163,7 +169,6 @@ h1 {
 	background-color: #333;
 	color: #fff;
 	padding: 10px;
-	height: 80px;
 	vertical-align: middle;
 }
 
@@ -179,4 +184,25 @@ h1 {
 	border-left: 10px solid #333;
 	border-right: 10px solid #333;
 	background-color: #777;
+}
+
+.album {
+	cursor: pointer;
+}
+
+.track-list {
+	display: none;
+}
+
+.track {
+	padding: 4px 0;
+	margin-left: 20px;
+}
+
+.track-border {
+	width: auto;
+	height: 1px;
+	border-left: 14px solid #333;
+	border-right: 14px solid #333;
+	background-color: #555;
 }
