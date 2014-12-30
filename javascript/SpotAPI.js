@@ -72,4 +72,17 @@ var Spotify = function() {
 		var url = baseURI + 'albums/' + id;
 		asyncRequest(url, callback);
 	}
+
+	/*
+	 * Returns details on a given track.
+	 *
+	 * @param {String} id - the Spotify id of the track to be retrieved
+	 * @param {function(Object)} callback - function to manipulate returned data once
+	 *     async request has been completed.  The passed in parameter stores the result
+	 *     of the query.
+	 */
+	this.getTrack = function(id, callback) {
+		var url = baseURI + 'tracks/' + id;
+		asyncRequest(url, callback);
+	}
 };
