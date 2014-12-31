@@ -172,6 +172,10 @@ ul, li {
 	vertical-align: middle;
 }
 
+.spot-search-result p {
+	width: 440px;
+}
+
 .spot-search-result-title {
 	position: relative;
 	left: 100px;
