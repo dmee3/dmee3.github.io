@@ -1,90 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dan Meehan</title>
-	<link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-<div id="header" class="grid">
-	<div class="col-1-12 empty"></div>
-	<div id="name" class="col-6-12">
-		<img src="images/face_bw.jpg" width="100" height="100" class="content-img" />
-		<h1>Dan Meehan</h1>
-	</div>
-	<div class="col-3-12">
-		<ul id="nav">
-			<li><a href="#about">About Me</a></li>
-			<li> | </li>
-			<li><a href="#work">Work</a></li>
-			<li> | </li>
-			<li><a href="#projects">Projects</a></li>
-		</ul>
-	</div>
-</div>
-<div id="page-content" class="grid">
-	<div class="col-2-12 empty"></div>
-	<div class="col-8-12">
-		<div id="about" class="block">
-			<div class="sub-head">
-				<p>About Me</p>
+<html>
+		<head>
+			<title>Dan Meehan</title>
+			<link href="css/bootstrap.min.css" rel="stylesheet">
+			<link href="css/style.css" rel="stylesheet">
+		</head>
+		<body>
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+				</div>
+				<div class="collapse navbar-collapse" id="navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="#cover-nav">Home</a></li>
+						<li><a href="#work-nav">Work</a></li>
+						<li><a href="#school-nav">School</a></li>
+						<li><a href="#projects-nav">Projects</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			<div id="cover" class="section section-odd container">
+				<div id="cover-nav" class="nav-guide"></div>
+				<div class="col-md-2">&nbsp;</div>
+				<div class="col-md-8">
+					<h1>Dan Meehan</h1>
+					<img src="img/face.jpg" class="face-img" />
+					<h3>Hi!  My name is Dan, and I'm a graduate student in computer science at The Ohio State University.</h3>
+				</div>
+				<div class="col-md-2">&nbsp;</div>
 			</div>
-			<div class="block-content">
-				<p>Hi!  My name is Dan Meehan, and I am a computer science engineering student at The Ohio State University.  I am currently working towards my bachelor's degree, with plans to graduate at the end of this semester and attend graduate school in the fall.</p>
-				<br />
+
+			<div id="work" class="section section-even container">
+				<div id="work-nav" class="nav-guide"></div>
+				<h1>Work</h1>
+				<div class="container">
+					<div class="row item">
+						<div class="col-sm-8"><h4>Cutter Croix - Software Development Intern</h4></div>
+						<div class="col-sm-4 dates"><em>May 2015 - Present</em></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 details"><p>I worked as part of a small development team to update and maintain a web application used for opportunity and job tracking among contractors.  I worked on both front- and back-end components, using HTML, CSS, Javascript, and C# in the .NET framework.  One of several projects I accomplished was to build a command-line application to automate the back-loading of client metric data into a database.</p></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 details">
+							<ul>
+								<li>C#, SQL, HTML, CSS, Javascript</li>
+								<li>.NET framework</li>
+								<li>Database automation</li>
+								<li>SQL reports</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row item">
+						<div class="col-sm-8"><h4>MCPc - SQL Reporting/Database Intern</h4></div>
+						<div class="col-sm-4 dates"><em>June 2013 - April 2015</em></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 details">
+							<p>I was hired initially to write SQL reports concerning internal data for MCPc's Managed Services division.  However, I quickly branched out to working on customer-facing material, both standard MCPc and custom client-specific reports.  Additionally, I managed a web application running several digital signs used to display service ticket metrics in MCPc's technical support call center.  I created a separate web application from scratch using Ruby-on-Rails to automate the onboarding of new clients.</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 details">
+							<ul>
+								<li>SQL, HTML, CSS, Javascript, Ruby</li>
+								<li>ASP .NET, Ruby-on-Rails</li>
+								<li>SQL reports</li>
+								<li>MVC web application design</li>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div id="work" class="block">
-			<div class="sub-head">
-				<p>Work Experience</p>
+
+			<div id="school" class="section section-odd container">
+				<div id="school-nav" class="nav-guide"></div>
+				<h1>School</h1>
+				<div class="container">
+					<div class="row item">
+						<div class="col-sm-8"><h4>The Ohio State University - MS Computer Science & Engineering</h4></div>
+						<div class="col-sm-4 dates"><em>May 2017 (expected)</em></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 details"><p>As a graduate student in the CSE department, I am furthering my studies from my time as an undergraduate student and focusing on several topics in greater depth.  Specifically, my areas of interest are programming language development, compiler implementation, and techniques in artificial intelligence.</p></div>
+					</div>
+					<div class="row item">
+						<div class="col-sm-8"><h4>The Ohio State University - BS Computer Science & Engineering</h4></div>
+						<div class="col-sm-4 dates"><em>May 2015</em></div>
+					</div>
+				</div>
 			</div>
-			<div class="block-content">
-				<h3>MCPc, Inc</h3>
-				<br />
-				<h4>Managed Services Reporting Intern | June 2013 - present</h4>
-				<br />
-				<p>As a reporting intern, I am in charge of managing and creating SQL reports for company and client use.  These reports pull data from a variety of sources, then organize and display relevant information via lists, tables, and charts.  I also run several digital signage stations which report on metrics for the managed services division and offer managers and employees alike a quick snapshot on service ticket statistics.</p>
-				<br />
-				<br />
-				<h3>Percussion Instructor</h3>
-				<br />
-				<h4>Westlake High School | May 2013 - present</h4>
-				<br />
-				<p>I have worked with the Westlake High School marching band for the past 2 seasons as the head percussion instructor.  I work with students throughout the summer and fall months to improve their skills as percussionists in individual and ensemble settings.  Additionally, I am in charge of writing the majority of the exercises, cadences, and show music they use both on and off the field.</p>
+
+			<div id="projects" class="section section-even container">
+				<div id="projects-nav" class="nav-guide"></div>
+				<h1>Projects</h1>
+				<div class="container">
+					<div class="row item">
+						<div class="col-sm-8"><h4>Stacker</h4></div>
+						<div class="col-sm-4 dates"><em>December 2014</em></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 details">
+							<p>Stacker is a cross-platform mobile application for scheduling group meetings. It was developed using Adobe PhoneGap to provide support for multiple mobile devices and jQuery Mobile to facilitate a fast and responsive mobile design. The backend was built on a traditional LAMP stack with server space provided by the Ohio State Computer Science Engineering department during development.</p>
+							<p>Though my team finished our contribution as required for a capstone course, the application is still in development. Further details will follow once Stacker has been published.</p>
+						</div>
+					</div>
+					<div class="row item">
+						<div class="col-sm-8"><h4>iMusic</h4></div>
+						<div class="col-sm-4 dates"><em>November 2014</em></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 details">
+							<p>iMusic is an iOS music player with added Facebook and YouTube integration. Aside from playing music stored on the device, users can view a list of Facebook friends who use the app, see what their friends have been listening to, and browse/search YouTube to find music videos.</p>
+							<p>The application was developed for iOS by a 3-man team for Ohio State's Mobile Application Development course. I and my teammates distributed the workload at regular intervals based roughly on an agile development plan. My most important contribution to the project was the implementation of a custom class to keep track of audio playback, song queues, and other information related to the music player itself.</p>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div id="projects" class="block">
-			<div class="sub-head">
-				<p>Projects</p>
-			</div>
-			<div class="block-content">
-				<img src="images/stacker.jpg" width="200" height="200" class="content-img" />
-				<h3>Stacker</h3>
-				<br />
-				<h4>Contribution Completed December 2014</h4>
-				<br />
-				<p>Stacker is a cross-platform mobile application for scheduling group meetings.  It was developed using Adobe PhoneGap to provide support for multiple mobile devices and jQuery Mobile to facilitate a fast and responsive mobile design.  The backend was built on a traditional LAMP stack with server space provided by the Ohio State Computer Science Engineering department during development.</p>
-				<br />
-				<p>Though my team has finished our contribution, the application is still in development.  Further details will follow once Stacker has been published.</p>
-				<br />
-				<br />
-				<img src="images/iMusic.jpg" width="200" height="200" class="content-img" />
-				<h3>iMusic</h3>
-				<br />
-				<h4>Completed November 2014</h4>
-				<br />
-				<p>iMusic is an iOS music player with added Facebook and YouTube integration.  Aside from playing music stored on the device, users can view a list of Facebook friends who use the app, see what their friends have been listening to, and browse/search YouTube to find music videos.</p>
-				<br />
-				<p>The application was developed for iOS by a 3-man team for Ohio State's Mobile Application Development course.  I and my teammates distributed the workload at regular intervals based roughly on an agile development plan.  My most important contribution to the project was the implementation of a custom class to keep track of audio playback, song queues, and other information related to the music player itself.</p>
-			</div>
-		</div>
-	</div>
-	<div class="col-2-12 empty"></div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="javascript/SpotAPI.js"></script>
-<script src="javascript/script.js"></script>
-</body>
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/script.js"></script>
+		</body>
 </html>
