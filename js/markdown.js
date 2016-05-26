@@ -1,5 +1,5 @@
 var syntax = {'^': 'i', '*': 'b', '_': 'u'};
-var lineSyntax = { '==': 'hr' };
+var lineSyntax = { '==': 'hr', '': 'br' };
 var headers = { '#': 'h1', '##': 'h2', '###': 'h3', '####': 'h4', '#####': 'h5', '######': 'h6' };
 
 var textBlock = function (txt) {
@@ -33,6 +33,13 @@ textBlock.prototype.parseBasicSymbol = function(sym) {
 	_parsing = result;
 };
 
+textBlock.prototype.parseAllBasicSymbols = function() {
+
+	for (var sym in syntax) {
+		this.parseBasicSymbol(sym);
+	}
+};
+
 textBlock.prototype.parseLineSymbol = function(sym) {
 	
 	if (_parsing === sym) {
@@ -41,6 +48,18 @@ textBlock.prototype.parseLineSymbol = function(sym) {
 	}
 	
 	return false;
+};
+
+textBlock.prototype.parseAllLineSymbols = function() {
+
+	for(var sym in lineSyntax) {
+		if (this.parseLineSymbol(sym)) {
+			return true;
+		}
+	}
+	
+	return false;
+	
 };
 
 textBlock.prototype.parseHeaders = function () {
@@ -87,16 +106,14 @@ textBlock.prototype.parse = function() {
 	
 	_parsing = this.text;
 
-	if (this.parseHeaders() || this.parseLineSymbol('==')) {
+	if (this.parseHeaders() || this.parseAllLineSymbols()) {
 		this.html = _parsing;
 		return;
 	}
 
 	this.parseLinks();
 
-	this.parseBasicSymbol('*');
-	this.parseBasicSymbol('_');
-	this.parseBasicSymbol('^');
+	this.parseAllBasicSymbols();
 	
 	this.stripEscapes();
 
