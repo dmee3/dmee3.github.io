@@ -1,9 +1,9 @@
-
 var syntax = {'^': 'i', '*': 'b', '_': 'u'};
+var lineSyntax = { '==': 'hr' };
+var headers = { '#': 'h1', '##': 'h2', '###': 'h3', '####': 'h4', '#####': 'h5', '######': 'h6' };
 
-
-var textBlock = function (text) {
-	this.text = text;
+var textBlock = function (txt) {
+	this.text = txt;
 };
 
 textBlock.prototype.replaceBasicSymbol = function(sym) {
@@ -31,11 +31,33 @@ textBlock.prototype.replaceBasicSymbol = function(sym) {
 	this.text = result;
 };
 
-textBlock.prototype.stripEscapes = function() {
-	this.text = this.text.replace(/\\/g, '');
+textBlock.prototype.replaceLineSymbol = function(sym) {
+	
+	if (this.text === sym) {
+		this.text = '<' + lineSyntax[sym] + '>';
+		return true;
+	}
+	
+	return false;
 };
 
-textBlock.prototype.generateLinks = function() {
+textBlock.prototype.replaceHeaders = function () {
+	
+	if (this.text.charAt(0) !== '#') {
+		return false;
+	}
+
+	for (var i = 1; i < 7; i++) {
+		if (this.text.charAt(i) !== '#' || i == 6) {
+			this .text = '<h' + i + '>' + this.text.substring(i) + '</h' + i + '>';
+			return true;
+		}
+	}
+
+	return true;
+}
+
+textBlock.prototype.replaceLinks = function() {
 
 	var regex = new RegExp(/\[(.*?)\]\((.*?)\)/, 'g');
 	var links = regex.exec(this.text);
@@ -53,7 +75,11 @@ textBlock.prototype.generateLinks = function() {
 	}
 
 	this.text = result + this.text.substring(prevIndex);
-}
+};
+
+textBlock.prototype.stripEscapes = function() {
+	this.text = this.text.replace(/\\/g, '');
+};
 
 function generateMarkdown(text) {
 
@@ -62,7 +88,7 @@ function generateMarkdown(text) {
 
 	//Process each line separately
 	for (var i = 0; i < lines.length; i++) {
-		output = output + processBlock(lines[i]) + '<br>';
+		output = output + processBlock(lines[i]);
 	}
 
 	return output;
@@ -71,10 +97,18 @@ function generateMarkdown(text) {
 function processBlock(line) {
 
 	var block = new textBlock(line);
-	block.generateLinks();
+	
+	if (block.replaceHeaders() || block.replaceLineSymbol('==')) {
+		return block.text;
+	}
+	
+	block.replaceLinks();
+	
 	block.replaceBasicSymbol('*');
 	block.replaceBasicSymbol('_');
 	block.replaceBasicSymbol('^');
+	
 	block.stripEscapes();
-	return block.text;
+	
+	return '<p>' + block.text + '</p>';
 }
