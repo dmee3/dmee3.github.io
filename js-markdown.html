@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>Javascript Markdown Engine</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<h1 class="col-xs-12">Javascript Markdown Engine</h1>
+			</div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="container">
+						<div class="row">
+							<h3>Syntax</h3>
+							<p>To bold, underline, or italicize text, surround it by the appropriate characters.  Any unmatched text-modification character will apply its rule up to the end of the line (for example, *abc = <b>abc</b>)</p>
+						</div>
+						<div class="col-xs-6">
+							<ul>
+								<li><b>Bold:</b> *</li>
+								<li><b>Italic:</b> ^</li>
+								<li><b>Underline:</b> _</li>
+								<li><a href="#">Hyperlink:</a> [Link text](http://www.website.com)</li>
+							</ul>
+						</div>
+						<div class="col-xs-6">
+							<p>Escape symbols by preceding with \</p>
+							<p>For example: *This* is bold but \*this\* is not = <b>This</b> is bold but *this* is not</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h5>Input</h5>
+					<textarea id="edit" style="width:100%; min-height: 200px;"></textarea>
+				</div>
+				<div class="col-md-6">
+					<h5>Result</h5>
+					<div id="preview"></div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/markdown.js"></script>
+		<script type="text/javascript">
+
+			$(document).ready(function() {
+				$('#edit').on('keyup', function() {
+					$('#preview').html(generateMarkdown($(this).val()));
+				});
+			});
+		</script>
+	</body>
+</html>
