@@ -10,38 +10,62 @@
 			<h2>Syntax</h2>
 			<div class="col-md-6">
 				<ul class="list-unstyled">
-					<li><b>Inline Text transformations</b></li>
+					<li><b>Inline Text Transformations</b></li>
 					<li>These tags can be placed around text to apply their rule to all content inside the tag.</li>
 					<li>Placing just a single tag will apply the rule up to the end of the line.
 						<ul>
-							<li><b>Bold:</b> *</li>
-							<li><i>Italic:</i> ^</li>
+							<li><b>Bold:</b> #</li>
+							<li><i>Italic:</i> *</li>
 							<li><u>Underline:</u> _</li>
 						</ul>
 					</li>
 					<li><br></li>
-					<li><b>Inline Elements</b></li>
-					<li>These elements can be mixed with plain text on a single line
+					<li><b>Structural Elements</b></li>
+					<li>
 						<ul>
-							<li><a href="#">Hyperlink:</a> [Link text](http://www.website.com)</li>
+							<li>Lists: a dash (-) at the beginning of the line indicates a list.  To nest lists at further depths, add 2, 4, 6, etc. spaces before the dash.
+								<ul>
+									<li>-Item 1</li>
+									<li>-Item 2</li>
+									<li>&nbsp;&nbsp;-Item 2a</li>
+									<li>&nbsp;&nbsp;-Item 2b</li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;-Item 2ai</li>
+									<li>&nbsp;&nbsp;&nbsp;&nbsp;-Item 2aii</li>
+									<li>-Item 3</li>
+								</ul>
+							</li>
 						</ul>
 					</li>
 				</ul>
 			</div>
 			<div class="col-md-6">
 				<ul class="list-unstyled">
-					<li><b>Line-Level Elements</b></li>
-					<li>These elements must be located on a line with no other text.
+					<li><b>Inline Elements</b></li>
+					<li>These elements can be mixed with plain text on a single line.
 						<ul>
-							<li>Horizontal Rule: ==</li>
-							<li>Headers: All text on the line will become a header
+							<li><a href="#">Hyperlink:</a> [Link text](http://www.website.com)</li>
+						</ul>
+					</li>
+					<li><br></li>
+					<li><b>Formatting</b></li>
+					<li>
+						<ul>
+							<li>Horizontal Rule: ---- (must be the only text on the line)</li>
+						</ul>
+					</li>
+					<li><br></li>
+					<li><b>Line Elements</b></li>
+					<li>These elements take up one entire line.
+						<ul>
+							<li>Block Quote: > (Following text will be inside a block quote)</li>
+							<li>Headers:
 								<ul>
-									<li># H1</li>
-									<li>## H2</li>
-									<li>### H3</li>
-									<li>#### H4</li>
-									<li>##### H5</li>
-									<li>###### H6</li>
+									<li>! Header 1</li>
+									<li>!! Header 2</li>
+									<li>!!! Header 3</li>
+									<li>!!!! Header 4</li>
+									<li>!!!!! Header 5</li>
+									<li>!!!!!! Header 6</li>
 								</ul>
 							</li>
 						</ul>
@@ -69,11 +93,17 @@
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/markdown.js"></script>
 		<script type="text/javascript">
-
 			$(document).ready(function() {
+
+				var oldVal = $('#edit').val();
+
 				$('#edit').on('keyup', function() {
-					var prev = generateMarkdown($(this).val());
-					$('#preview').html(prev);
+
+					if ($(this).val() !== oldVal) {
+						oldVal = $(this).val();
+						var prev = generateMarkdown($(this).val());
+						$('#preview').html(prev);
+					}
 				});
 			});
 		</script>

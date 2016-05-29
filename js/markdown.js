@@ -1,136 +1,221 @@
-var syntax = {'^': 'i', '*': 'b', '_': 'u'};
-var lineSyntax = { '==': 'hr', '': 'br' };
-var headers = { '#': 'h1', '##': 'h2', '###': 'h3', '####': 'h4', '#####': 'h5', '######': 'h6' };
-
-var textBlock = function (txt) {
-	this.text = txt;
-	var _parsing = '';
-	this.html = '';
+var lineRules = {
+	'QUOTE': /^>(.*)/,
+	'LIST': /^((?:  )*)-/,
+	'HR': /^-{4}$/,
+	'BR': /^\s*$/
 };
 
-textBlock.prototype.parseBasicSymbol = function(sym) {
+var tagMap = {
+	'BOLD': { md: '#', html: 'b' },
+	'UND': { md: '_', html: 'u' },
+	'ITAL': { md: '*', html: 'i' },
+	'H1': { md: '!', html: 'h1' },
+	'H2': { md: '!!', html: 'h2' },
+	'H3': { md: '!!!', html: 'h3' },
+	'H4': { md: '!!!!', html: 'h4' },
+	'H5': { md: '!!!!!', html: 'h5' },
+	'H6': { md: '!!!!!!', html: 'h6' }
+};
 
-	var regex = new RegExp('(?:[^\\' + sym + '\\\\]|\\\\.)*', 'g');
-	var chunks = _parsing.match(regex);
-	if (chunks[chunks.length - 1] === '') {
-		chunks.pop();
-	}
+var textLine = function(src) {
 
-	var inTag = false;
-	var result = '';
-	for (var i = 0; i < chunks.length; i++) {
-		if (chunks[i] === '') {
-			result += (inTag ? '</' : '<') + syntax[sym] + '>';
-			inTag = !inTag;
-		} else {
-			result += chunks[i];
+	this.src = src;
+	this.openTags = [];
+
+	this.type = '';
+	for (var r in lineRules) {
+		if (lineRules[r].exec(src)) {
+			this.type = r;
+			return;
 		}
 	}
 
-	if (inTag) {
-		result += '</' + syntax[sym] + '>';
-	}
-	_parsing = result;
-};
-
-textBlock.prototype.parseAllBasicSymbols = function() {
-
-	for (var sym in syntax) {
-		this.parseBasicSymbol(sym);
+	if (this.type === '') {
+		this.type = 'TXT';
 	}
 };
 
-textBlock.prototype.parseLineSymbol = function(sym) {
-	
-	if (_parsing === sym) {
-		_parsing = '<' + lineSyntax[sym] + '>';
-		return true;
-	}
-	
-	return false;
-};
+textLine.prototype.parse = function() {
+	var output = '';
+	var text = this.src;
+	var cap = [];
+	var pos = 0;
 
-textBlock.prototype.parseAllLineSymbols = function() {
+	while(text) {
 
-	for(var sym in lineSyntax) {
-		if (this.parseLineSymbol(sym)) {
-			return true;
+		switch (text.charAt(0)) {
+
+			//Escape character
+			case '\\':
+				output += text.charAt(1);
+				text = text.substring(2);
+				break;
+
+			//Bold, italic, underline, header
+			case '#':
+			case '*':
+			case '_':
+			case '!':
+				var type = '';
+				if (text.charAt(0) === '#') {
+					type = 'BOLD';
+				} else if (text.charAt(0) === '*') {
+					type = 'ITAL';
+				} else if (text.charAt(0) === '_') {
+					type = 'UND';
+				} else {
+					var i = 1;
+					while (text.charAt(i) === '!' && i < 6) {
+						i++;
+					}
+					text = text.substring(i - 1);
+					type = 'H' + i;
+				}
+
+				/***** break this into a separate function so switch case isn't so redundant */
+				/* Param: type, return: output */
+				/* How to push/splice from open tags though??? */
+				if ((pos = this.openTags.indexOf(type)) === -1) {
+					output += '<' + tagMap[type].html + '>';
+					this.openTags.push(type);
+				} else {
+					output += '</' + tagMap[type].html + '>';
+					this.openTags.splice(pos, 1);
+				}
+				text = text.substring(1);
+				/******************************/
+				break;
+
+			//Link
+			case '[':
+				if (cap = /\[([^\]]+)\]\((\S+(?=\)))\)/.exec(text)) {
+					output += '<a href="' + cap[2] + '" target="_blank">' + cap[1] + '</a>';
+					text = text.substring(cap[0].length);
+				} else {
+					output += text.charAt(0);
+					text = text.substring(1);
+				}
+				break;
+
+			//Plain text
+			default:
+				if (cap = /^([^#!_\\\*]+)/.exec(text)) {
+					output += cap[1];
+					text = text.substring(cap[1].length);
+				} else { //Should never reach this, just here to avoid possible infinite loop
+					output += text.charAt(0);
+					text = text.substring(1);
+				}
+				break;
 		}
 	}
 	
-	return false;
-	
+	while (this.openTags.length > 0) {
+		output += '</' + tagMap[this.openTags.pop()].html + '>';
+	}
+	return output;
 };
 
-textBlock.prototype.parseHeaders = function () {
-	
-	if (_parsing.charAt(0) !== '#') {
-		return false;
+/******************************************************************************/
+
+var textBlock = function(src) {
+
+	this.openBlock = false;
+	this.listDepth = 0;
+	this.lines = [];
+
+	var input = src.split('\n');
+	for (var i = 0; i < input.length; i++) {
+		this.lines.push(new textLine(input[i]));
 	}
-
-	for (var i = 1; i < 7; i++) {
-		if (_parsing.charAt(i) !== '#' || i == 6) {
-			_parsing = '<h' + i + '>' + _parsing.substring(i) + '</h' + i + '>';
-			return true;
-		}
-	}
-
-	return true;
-}
-
-textBlock.prototype.parseLinks = function() {
-
-	var regex = new RegExp(/\[(.*?)\]\((.*?)\)/, 'g');
-	var links = regex.exec(_parsing);
-
-	if (links == null) {
-		return;
-	}
-
-	var result = '';
-	var prevIndex = 0;
-	while (links != null) {
-		result += _parsing.substring(prevIndex, links['index']) + '<a href="' + links[2] + '" target="_blank">' + links[1] + '</a>';
-		prevIndex = regex.lastIndex;
-		links = regex.exec(_parsing);
-	}
-
-	_parsing = result + _parsing.substring(prevIndex);
-};
-
-textBlock.prototype.stripEscapes = function() {
-	_parsing = _parsing.replace(/\\/g, '');
 };
 
 textBlock.prototype.parse = function() {
-	
-	_parsing = this.text;
 
-	if (this.parseHeaders() || this.parseAllLineSymbols()) {
-		this.html = _parsing;
-		return;
+	var output = [];
+	for (var i = 0; i < this.lines.length; i++) {
+
+		//Unset the block quote flag if the line after a block quote isn't a b.q.
+		if (this.openBlock && this.lines[i].type !== 'QUOTE') {
+			this.openBlock = false;
+			output.push('</blockquote>');
+		}
+
+		//Close list(s) if the line after a list isn't a list
+		while (this.listDepth > 0 && this.lines[i].type !== 'LIST') {
+			output.push('</ul>');
+			this.listDepth--;
+		}
+
+		switch (this.lines[i].type) {
+
+			case 'TXT':
+				output.push('<p>' + this.lines[i].parse() + '</p>');
+				break;
+
+			case 'HR':
+				output.push('<hr>');
+				break;
+
+			case 'BR':
+				output.push('<br>');
+				break;
+
+			case 'QUOTE':
+
+				//Remove the block quote character at beginning of line ( > )
+				this.lines[i].src = this.lines[i].src.substring(1);
+
+				//Handle the first line of a block quote section
+				if (!this.openBlock) {
+					this.openBlock = true;
+					output.push('<blockquote><p>' + this.lines[i].parse() + '</p>');
+
+				//Handle any block quote line other than the first in a section
+				} else {
+					output.push('<p>' + this.lines[i].parse() + '</p>');
+				}
+				break;
+				
+			case 'LIST':
+
+				//Determine new list depth
+				var cap = lineRules['LIST'].exec(this.lines[i].src);
+				var newDepth = (cap[1].length / 2) + 1;
+
+				//Adjust to new list depth
+				while (this.listDepth > newDepth) {
+					output.push('</ul>');
+					this.listDepth--;
+				}
+				while (this.listDepth < newDepth) {
+					output.push('<ul>');
+					this.listDepth++;
+				}
+
+				//Parse line
+				this.lines[i].src = this.lines[i].src.substring(((newDepth - 1) * 2) + 1);
+				output.push('<li>' + this.lines[i].parse() + '</li>');
+				break;
+		}
 	}
-
-	this.parseLinks();
-
-	this.parseAllBasicSymbols();
 	
-	this.stripEscapes();
-
-	this.html = '<p>' + _parsing + '</p>';
-}
+	//Close the open block quote if the last line of input was a block quote
+	if (this.openBlock) {
+		this.openBlock = false;
+		output.push('</blockquote>');
+	}
+	
+	//Close any open lists
+	while (this.listDepth > 0) {
+		output.push('</ul>');
+		this.listDepth--;
+	}
+	
+	return output.join('');
+};
 
 function generateMarkdown(text) {
-
-	var lines = text.split('\n');
-	var output = "";
-
-	//Process each line separately
-	for (var i = 0; i < lines.length; i++) {
-		var block = new textBlock(lines[i]);
-		block.parse();
-		output = output + block.html;
-	}
-
-	return output;
+	var block = new textBlock(text);
+	return block.parse();
 }
