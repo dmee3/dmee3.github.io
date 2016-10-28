@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/vis.css" rel="stylesheet">
+		<title>Audio Visualizer</title>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Audio Visualizer</h1>
+			<audio id="player"></audio>
+			<br />
+			<select id="style">
+				<option>Particles</option>
+				<option>Bars</option>
+				<option>Lines</option>
+			</select>
+			<br /><br />
+			<canvas id="visualizer" class="visualizer" width="500" height="500">
+				Your browser does not support canvas elements.
+			</canvas>
+		</div>
+		<script src="js/vis.js" type="text/javascript"></script>
+	</body>
+</html>

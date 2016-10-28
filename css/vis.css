@@ -1,0 +1,12 @@
+#player {
+	width: 500px;
+	background-color: #333333;
+	z-index: 5;
+}
+
+.visualizer {
+	background-color: #333333;
+	z-index: 10;
+	top: 0;
+	left: 0;
+}
