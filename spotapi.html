@@ -1,0 +1,153 @@
+<html>
+<head>
+	<title>Dan Meehan</title>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	<link href="css/style.css" rel="stylesheet">
+	<style>
+		/* input color */
+		.input-field input[type=text] {
+			border-bottom: 1px solid #35394B;
+			box-shadow: none;
+		}
+		/* label color */
+		.input-field label, label {
+			color: #35394B;
+		}
+		/* label focus color */
+		.input-field input[type=text]:focus + label {
+			color: #CEE0E2;
+		}
+		/* input underline focus color */
+		.input-field input[type=text]:focus {
+			border-bottom: 1px solid #CEE0E2;
+			box-shadow: 0 1px 0 0 #CEE0E2;
+		}
+		/* radio button not selected */
+		[type=radio]:not(:checked)+label:before,
+		[type=radio]:not(:checked)+label:after {
+			border: 2px solid #35394B;
+			border-radius: 50%;
+		}
+		/* radio button selected */
+		[type=radio]:checked+label:before,
+		[type=radio]:checked+label:after {
+			border: 2px solid transparent;
+			border-radius: 50%;
+			background-color: #CEE0E2;
+		}
+		/* radio label selected */
+		[type=radio]:checked+label {
+			color: #CEE0E2;
+		}
+	</style>
+</head>
+<body class="charcoal white-text">
+
+	<nav class="sweet-brown">
+		<div class="nav-wrapper">
+			<ul>
+				<li><a href="/#">Home</a></li>
+				<li><a href="/#work">Work</a></li>
+				<li><a href="/#school">School</a></li>
+				<li><a href="/#projects">Projects</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h2>SpotAPI</h2>
+		</div>
+
+		<div class="row">
+			<div class="custom-card sweet-brown">
+				<div class="row">
+					<div class="input-field col s12 m6">
+						<input type="text" id="search-text" class="columbia-blue-text" />
+						<label for="search-text">Search Query</label>
+					</div>
+
+					<div class="col s12 m6 l3">
+						<p>
+							<input id="radio-artist" type="radio" name="type" value="artist" />
+							<label for="radio-artist">Artist</label>
+						</p>
+						<p>
+							<input id="radio-album" type="radio" name="type" value="album" />
+							<label for="radio-album">Album</label>
+						</p>
+					</div>
+
+					<div class="col s12 l3 center">
+						<br>
+						<button id="search" class="btn-large burly-wood charcoal-text hoverable">Search</button>
+					</div>
+
+					<div class="col s12">
+						<ul id="search-results" class="collection quick-silver charcoal-text"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+	<script src="js/SpotAPI.js"></script>
+	<script type="text/javascript">
+		var spot = new Spotify();
+
+		var appendItem = function(item) {
+			var entry = '';
+			if (item['images'].length > 0) {
+				entry = '<li class="collection-item quick-silver avatar"><img class="circle" src="' + item['images'][0]['url'] + '" /><span class="title">' + item['name'] + '</span>';
+			} else {
+				entry = '<li class="collection-item quick-silver"><span class="title">' + item['name'] + '</span>';
+			}
+
+			if (item['artists'] && item['artists'].length > 0) {
+				entry += '<p class="thin">' + item['artists'][0]['name'] + '</p>';
+			} else if (item['genres'] && item['genres'].length > 0) {
+				entry += '<p class="thin">' + item['genres'][0] + '</p>';
+			}
+
+
+			entry += '</li>';
+			$('#search-results').append(entry);
+		}
+
+		$('#search').on('click', function(e) {
+			if ($('#search-text').val() === '') return;
+
+			if ($('#radio-album').prop('checked')) {
+
+				spot.searchAlbum($('#search-text').val(), function(res) {
+
+					var result = res['albums']['items'];
+					$('#search-results').html('');
+
+					for (var i = 0; i < result.length; i++) {
+						var id = result[i]['id'];
+						spot.getAlbum(id, function(res) {
+							appendItem(res);
+						});
+					}
+				});
+
+			} else {
+
+				spot.searchArtist($('#search-text').val(), function(res) {
+
+					var result = res['artists']['items'];
+					$('#search-results').html('');
+
+					for (var i = 0; i < result.length; i++) {
+						appendItem(result[i]);
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

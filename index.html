@@ -1,167 +1,278 @@
 <html>
-		<head>
-			<title>Dan Meehan</title>
-			<link href="css/bootstrap.min.css" rel="stylesheet">
-			<link href="css/style.css" rel="stylesheet">
-		</head>
-		<body>
-			<nav class="navbar navbar-default navbar-fixed-top">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar">
-					<ul class="nav navbar-nav">
-						<li><a href="#cover-nav">Home</a></li>
-						<li><a href="#work-nav">Work</a></li>
-						<li><a href="#school-nav">School</a></li>
-						<li><a href="#projects-nav">Projects</a></li>
-					</ul>
-				</div>
-			</nav>
+<head>
+	<title>Dan Meehan</title>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
 
-			<div id="cover" class="section section-odd container">
-				<div id="cover-nav" class="nav-guide"></div>
-				<div class="col-md-2">&nbsp;</div>
-				<div class="col-md-8">
-					<h1>Dan Meehan</h1>
-					<img src="img/face.jpg" class="face-img" />
-					<h3>Hi!  My name is Dan, and I'm a graduate student in computer science at The Ohio State University.</h3>
-				</div>
-				<div class="col-md-2">&nbsp;</div>
-			</div>
+	<nav class="sweet-brown">
+		<div class="nav-wrapper">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#work">Work</a></li>
+				<li><a href="#school">School</a></li>
+				<li><a href="#projects">Projects</a></li>
+			</ul>
+		</div>
+	</nav>
 
-			<div id="work" class="section section-even container">
-				<div id="work-nav" class="nav-guide"></div>
-				<h1>Work</h1>
-				<div class="container">
-					<div class="row item">
-						<div class="col-sm-8"><h4>Cutter Croix - Software Development Intern</h4></div>
-						<div class="col-sm-4 dates"><em>May 2015 - Present</em></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details"><p>I worked as part of a small development team to update and maintain a web application used for opportunity and job tracking among contractors.  I worked on both front- and back-end components, using HTML, CSS, Javascript, and C# in the .NET framework.  One of several projects I accomplished was to build a command-line application to automate the back-loading of client metric data into a database.</p></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<ul>
-								<li>C#, SQL, HTML, CSS, Javascript</li>
-								<li>.NET framework</li>
-								<li>Database automation</li>
-								<li>SQL reports</li>
-							</ul>
-						</div>
-					</div>
-					<div class="row item">
-						<div class="col-sm-8"><h4>Cap City Percussion - Executive Director and Webmaster</h4></div>
-						<div class="col-sm-4 dates"><em>April 2014 - Present</em></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details"><p>Cap City Percussion is a competitive percussion ensemble from Columbus, Ohio, whose members are high school and college students from around the midwest.  While I was still performing with the ensemble I served as an administrative assistant and began handling some of the day-to-day tasks of running the ensemble, as well as designing and maintaining the website.  After the 2015 competitive season I moved from being a member to part of the staff, and took up the role of director.  My duties include tracking finances and maintaining the yearly budget, securing rehearsal space for the season, and coordinating an administrative team to handle the logistical operations of the organization.</p></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<ul>
-								<li>PHP, MySQL, HTML, CSS, Javascript</li>
-								<li>Laravel, MaterializeCSS, VueJS, Git</li>
-								<li>Business Operations</li>
-								<li>Team Leadership</li>
-							</ul>
-						</div>
-					</div>
-					<div class="row item">
-						<div class="col-sm-8"><h4>MCPc - SQL Reporting/Database Intern</h4></div>
-						<div class="col-sm-4 dates"><em>June 2013 - April 2015</em></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<p>I was hired initially to write SQL reports concerning internal data for MCPc's Managed Services division.  However, I quickly branched out to working on customer-facing material, both standard MCPc and custom client-specific reports.  Additionally, I managed a web application running several digital signs used to display service ticket metrics in MCPc's technical support call center.  I created a separate web application from scratch using Ruby-on-Rails to automate the onboarding of new clients.</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<ul>
-								<li>SQL, HTML, CSS, Javascript, Ruby</li>
-								<li>ASP .NET, Ruby-on-Rails</li>
-								<li>SQL reports</li>
-								<li>MVC web application design</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+		<!-- Artsy drum photo -->
 
-			<div id="school" class="section section-odd container">
-				<div id="school-nav" class="nav-guide"></div>
-				<h1>School</h1>
-				<div class="container">
-					<div class="row item">
-						<div class="col-sm-8"><h4>The Ohio State University - MS Computer Science & Engineering</h4></div>
-						<div class="col-sm-4 dates"><em>May 2017 (expected)</em></div>
+	<section id="work" class="charcoal">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 white-text">
+					<h2>Work</h2>
+
+					<div class="custom-card quick-silver">
+						<div class="row">
+							<div class="col s12 l8"><h5>Cutter Croix - Software Development Intern</h5></div>
+							<div class="col s12 l4 work-dates"><h5 class="thin"><em>May 2015 - Present</em></h5></div>
+							<div class="col s12 l8">
+								<br>
+								<p>I worked as part of a small development team to update and maintain a web application used for opportunity and job tracking among contractors.  I worked on both front- and back-end components, using HTML, CSS, Javascript, and C# in the .NET framework.  One of several projects I accomplished was to build a command-line application to automate the back-loading of client metric data into a database.</p>
+							</div>
+							<div class="col s12 l4">
+								<div class="card burly-wood charcoal-text">
+									<div class="card-content">
+										<h6>Skills</h6>
+										<ul>
+											<li class="thin">C#, SQL, HTML, CSS, Javascript</li>
+											<li class="thin">.NET framework</li>
+											<li class="thin">Database automation</li>
+											<li class="thin">SQL reports</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="row">
-						<div class="col-sm-12 details"><p>As a graduate student in the CSE department, I am furthering my studies from my time as an undergraduate student and focusing on several topics in greater depth.  Specifically, my areas of interest are programming language development, compiler implementation, and techniques in artificial intelligence.</p></div>
+
+					<div class="custom-card quick-silver">
+						<div class="row">
+							<div class="col s12 l8"><h5>Cap City Percussion - Executive Director and Webmaster</h5></div>
+							<div class="col s12 l4 work-dates"><h5 class="thin"><em>April 2014 - Present</em></h5></div>
+							<div class="col s12 l8">
+								<br>
+								<p>Cap City Percussion is a competitive percussion ensemble from Columbus, Ohio, whose members are high school and college students from around the midwest.  While I was still performing with the ensemble I served as an administrative assistant and began handling some of the day-to-day tasks of running the ensemble, as well as designing and maintaining the website.  After the 2015 competitive season I moved from being a member to part of the staff, and took up the role of director.  My duties include tracking finances and maintaining the yearly budget, securing rehearsal space for the season, and coordinating an administrative team to handle the logistical operations of the organization.</p>
+							</div>
+							<div class="col s12 l4">
+								<div class="card burly-wood charcoal-text">
+									<div class="card-content">
+										<h6>Skills</h6>
+										<ul>
+											<li class="thin">PHP, MySQL, HTML, CSS, Javascript</li>
+											<li class="thin">Laravel, MaterializeCSS, VueJS, Git</li>
+											<li class="thin">Business Operations</li>
+											<li class="thin">Team Leadership</li>
+											<li class="thin">MVC application design</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="row item">
-						<div class="col-sm-8"><h4>The Ohio State University - BS Computer Science & Engineering</h4></div>
-						<div class="col-sm-4 dates"><em>May 2015</em></div>
+
+					<div class="custom-card quick-silver">
+						<div class="row">
+							<div class="col s12 l8"><h5>MCPc - SQL Reporting/Database Intern</h5></div>
+							<div class="col s12 l4 work-dates"><h5 class="thin"><em>June 2013 - April 2015</em></h5></div>
+							<div class="col s12 l8">
+								<br>
+								<p>I was hired initially to write SQL reports concerning internal data for MCPc's Managed Services division.  However, I quickly branched out to working on customer-facing material, both standard MCPc and custom client-specific reports.  Additionally, I managed a web application running several digital signs used to display service ticket metrics in MCPc's technical support call center.  I created a separate web application from scratch using Ruby-on-Rails to automate the onboarding of new clients.</p>
+							</div>
+							<div class="col s12 l4">
+								<div class="card burly-wood charcoal-text">
+									<div class="card-content">
+										<h6>Skills</h6>
+										<ul>
+											<li class="thin">SQL, HTML, CSS, Javascript, Ruby</li>
+											<li class="thin">ASP .NET, Ruby-on-Rails</li>
+											<li class="thin">SQL reports</li>
+											<li class="thin">MVC application design</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
+
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<div id="projects" class="section section-even container">
-				<div id="projects-nav" class="nav-guide"></div>
-				<h1>Projects</h1>
-				<div class="container">
-					<div class="row item">
-						<div class="col-sm-8"><h4>Cap City Website</h4></div>
-						<div class="col-sm-4 dates"><em>September 2016</em></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<p>The Cap City website serves as both a public-facing informational website serving static content, and a web app to help run Cap City Percussion.  Members can log in to see season schedules, add conflicts with upcoming rehearsal dates, and pay membership fees.</p>
-							<p>The website is hosted on a Digital Ocean droplet set up as a LAMP stack.  Laravel is used as a back-end framework for all server-side code.  Google's Material Design specification served as a guide for the UI, and MaterializeCSS was used as the foundation for the site's style.  Additionally, VueJS was employed on certain pages to serve and format large amounts of data with minimal code repetition.</p>
-						</div>
-					</div>
-					<div class="row item">
-						<div class="col-sm-8"><h4>Javascript Markdown Engine</h4></div>
-						<div class="col-sm-4 dates"><em>In Progress</em></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<p>This quick markdown generator uses javascript to transform raw text to formatted HTML.  Features are still being added, but a working demo can be found <a href="js-markdown.html">here</a>.</p>
-						</div>
-					</div>
-					<div class="row item">
-						<div class="col-sm-8"><h4>Stacker</h4></div>
-						<div class="col-sm-4 dates"><em>December 2014</em></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<p>Stacker is a cross-platform mobile application for scheduling group meetings. It was developed using Adobe PhoneGap to provide support for multiple mobile devices and jQuery Mobile to facilitate a fast and responsive mobile design. The backend was built on a traditional LAMP stack with server space provided by the Ohio State Computer Science Engineering department during development.</p>
-							<p>Though my team finished our contribution as required for a capstone course, application development was not pursued further.</p>
-						</div>
-					</div>
-					<div class="row item">
-						<div class="col-sm-8"><h4>iMusic</h4></div>
-						<div class="col-sm-4 dates"><em>November 2014</em></div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 details">
-							<p>iMusic is an iOS music player with added Facebook and YouTube integration. Aside from playing music stored on the device, users can view a list of Facebook friends who use the app, see what their friends have been listening to, and browse/search YouTube to find music videos.</p>
-							<p>The application was developed for iOS by a 3-man team for Ohio State's Mobile Application Development course. I and my teammates distributed the workload at regular intervals based roughly on an agile development plan. My most important contribution to the project was the implementation of a custom class to keep track of audio playback, song queues, and other information related to the music player itself.</p>
+	<section id="school" class="quick-silver">
+		<div class="container">
+			<div class="row">
+				<div class="col s12">
+					<h2 class="charcoal-text">School</h2>
+						<div class="custom-card sweet-brown white-text">
+							<div class="row">
+								<h3>The Ohio State University</h3>
+								<div class="col s12 l6">
+									<div class="card charcoal">
+										<div class="card-content">
+											<h5>BS Computer Science & Engineering</h5>
+											<h6 class="thin"><em>May 2015</em></h6>
+										</div>
+									</div>
+								</div>
+								<div class="col s12 l6">
+									<div class="card charcoal">
+										<div class="card-content">
+											<h5>MS Computer Science & Engineering</h5>
+											<h6 class="thin"><em>Expected May 2017</em></h6>
+										</div>
+									</div>
+								</div>
+								<div class="col s12">
+									<p class="thin">As a graduate student in the CSE department, I am furthering my studies from my time as an undergraduate student and focusing on several topics in greater depth.  Specifically, my areas of interest are programming language development, compiler implementation, and techniques in artificial intelligence.</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-			<script src="js/bootstrap.min.js"></script>
-			<script src="js/script.js"></script>
-		</body>
+	<section id="projects" class="charcoal">
+		<div class="container white-text">
+			<div class="row">
+				<div class="col s12">
+					<h2>Projects</h2>
+
+					<div class="col s12 l4">
+						<a href="#cap-city-modal" class="white-text">
+							<div class="card sweet-brown hoverable">
+								<div class="card-content">
+									<span class="card-title">Cap City Website</span>
+									<p class="thin">September 2016</p>
+								</div>
+							</div>
+						</a>
+					</div>
+
+					<div class="col s12 l4">
+						<a href="#stacker-modal" class="charcoal-text">
+							<div class="card columbia-blue hoverable">
+								<div class="card-content">
+									<span class="card-title">Stacker</span>
+									<p class="thin">December 2014</p>
+								</div>
+							</div>
+						</a>
+					</div>
+
+					<div class="col s12 l4">
+						<a href="#imusic-modal" class="charcoal-text">
+							<div class="card burly-wood hoverable">
+								<div class="card-content">
+									<span class="card-title">iMusic</span>
+									<p class="thin">November 2014</p>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s12 center">
+					<h4 class="thin">Toy Projects</h4>
+					<p class="thin">These are quick projects I like to work on when I have a few hours of free time or want to learn a new technology by implementing it.<br>Click on each card for a demo!</p>
+				</div>
+
+				<div class="col s12 l4">
+					<a href="js-markdown.html" class="charcoal-text">
+						<div class="card quick-silver hoverable">
+							<div class="card-content">
+								<span class="card-title">JS Markdown</span>
+								<p>This quick markdown generator uses javascript to transform raw text to formatted HTML.</p>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="col s12 l4 charcoal-text">
+					<a href="vis.html" class="charcoal-text">
+						<div class="card quick-silver hoverable">
+							<div class="card-content">
+								<span class="card-title">Visualizer</span>
+								<p>A basic visualizer for audio tracks using the Web Audio API (only in Chrome for now, sorry!).</p>
+							</div>
+						</div>
+					</a>
+				</div>
+
+				<div class="col s12 l4 charcoal-text">
+					<a href="spotapi.html" class="charcoal-text">
+						<div class="card quick-silver hoverable">
+							<div class="card-content">
+								<span class="card-title">Spotify API</span>
+								<p>This tool provides a simple interface that can be used to search Spotify for artists and albums.</p>
+							</div>
+						</div>
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<div id="cap-city-modal" class="modal sweet-brown">
+		<div class="modal-content white-text">
+			<div class="modal-title-light">
+				<h2>Cap City Website</h2>
+			</div>
+			<h5 class="thin">September 2016</h5>
+			<div class="row">
+				<div class="col s12">
+					<p>The Cap City website serves as both a public-facing informational website serving static content, and a web app to help run Cap City Percussion.  Members can log in to see season schedules, add conflicts with upcoming rehearsal dates, and pay membership fees.</p>
+					<p>The website is hosted on a Digital Ocean droplet set up as a LAMP stack.  Laravel is used as a back-end framework for all server-side code.  Google's Material Design specification served as a guide for the UI, and MaterializeCSS was used as the foundation for the site's style.  Additionally, VueJS was employed on certain pages to serve and format large amounts of data with minimal code repetition.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="stacker-modal" class="modal columbia-blue">
+		<div class="modal-content charcoal-text">
+			<div class="modal-title-dark">
+				<h2>Stacker</h2>
+			</div>
+			<h5 class="thin">December 2014</h5>
+			<div class="row">
+				<div class="col s12">
+					<p>Stacker is a cross-platform mobile application for scheduling group meetings. It was developed using Adobe PhoneGap to provide support for multiple mobile devices and jQuery Mobile to facilitate a fast and responsive mobile design. The backend was built on a traditional LAMP stack with server space provided by the Ohio State Computer Science Engineering department during development.</p>
+					<p>Though my team finished our contribution as required for a capstone course, application development was not pursued further.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="imusic-modal" class="modal burly-wood">
+		<div class="modal-content charcoal-text">
+			<div class="modal-title-dark">
+				<h2>iMusic</h2>
+			</div>
+			<h5 class="thin">November 2014</h5>
+			<div class="row">
+				<div class="col s12">
+					<p>iMusic is an iOS music player with added Facebook and YouTube integration. Aside from playing music stored on the device, users can view a list of Facebook friends who use the app, see what their friends have been listening to, and browse/search YouTube to find music videos.</p>
+					<p>The application was developed for iOS by a 3-man team for Ohio State's Mobile Application Development course. I and my teammates distributed the workload at regular intervals based roughly on an agile development plan. My most important contribution to the project was the implementation of a custom class to keep track of audio playback, song queues, and other information related to the music player itself.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.modal').modal();
+		});
+	</script>
+</body>
 </html>
